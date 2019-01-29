@@ -1072,8 +1072,17 @@ public class AddressBook {
      * @param phone to be validated
      */
     private static boolean isPersonPhoneValid(String phone) {
-        return phone.matches("\\d+"); // phone nonempty sequence of digits
+        // return phone.matches("\\d+"); // phone nonempty sequence of digits
         // TODO: implement a more permissive validation
+        if (phone.length() == 0) {
+            return false;
+        }
+        for (int i = 0; i < phone.length(); ++i) {
+            if ((int) phone.charAt(i) > 57 || (int) phone.charAt(i) < 48) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
