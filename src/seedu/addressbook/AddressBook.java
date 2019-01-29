@@ -1078,7 +1078,8 @@ public class AddressBook {
             return false;
         }
         for (int i = 0; i < phone.length(); ++i) {
-            if ((int) phone.charAt(i) > 57 || (int) phone.charAt(i) < 48) {
+            if (((int) phone.charAt(i) > 57 || (int) phone.charAt(i) < 48) && phone.charAt(i) != '('
+                    && phone.charAt(i) != ')' && phone.charAt(i) != '+' && phone.charAt(i) != '-') {
                 return false;
             }
         }
